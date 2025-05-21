@@ -55,7 +55,7 @@ function DisplayName() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {/* Display full name only if available */}
-      {fullName && <div>Full Name: {fullName}</div>}
+      {fullName && <p>Full Name: {fullName}</p>}
     </div>
   );
 }
