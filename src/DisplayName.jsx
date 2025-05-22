@@ -6,27 +6,21 @@ function DisplayName() {
   const [fullName, setFullName] = useState("");
   const [error, setError] = useState("");
 
-  const nameRegex = /^[A-Za-z]+$/; 
+  // const nameRegex = /^[A-Za-z]+$/; 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // Validation: only letters allowed
-    if (!nameRegex.test(firstName)) {
-      setError("First name should contain only letters and must not start with a number or special character.");
-      setFullName("");
-      return;
-    }
+  if (!firstName.trim() || !lastName.trim()) {
+    setError("Both fields are required.");
+    setFullName("");
+    return;
+  }
 
-    if (!nameRegex.test(lastName)) {
-      setError("Last name should contain only letters and must not start with a number or special character.");
-      setFullName("");
-      return;
-    }
+  setFullName(`${firstName} ${lastName}`);
+  setError("");
+};
 
-    setFullName(`${firstName} ${lastName}`);
-    setError("");
-  };
 
   return (
     <div>
